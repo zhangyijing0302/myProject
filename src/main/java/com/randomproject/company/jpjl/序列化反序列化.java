@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.*;
 
 /**
  * 游戏服务器序列化/反序列化用什么样的技术
@@ -40,5 +41,8 @@ public class 序列化反序列化 {
         ObjectInputStream catFile = new ObjectInputStream(new FileInputStream("catFile"));
         Cat o = (Cat)catFile.readObject();
         System.out.println(o);
+        Connection conn = DriverManager.getConnection("");
+        Statement statement = conn.createStatement();
+//        PreparedStatement preparedStatement = conn.prepareStatement();
     }
 }

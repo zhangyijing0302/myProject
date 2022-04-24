@@ -5,8 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
- * 测试类
+ * 启动类
  */
+// 忽略jdbc连接
 @SpringBootApplication(exclude= DataSourceAutoConfiguration.class)
 public class RandomProjectApplication {
 
