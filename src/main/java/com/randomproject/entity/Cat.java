@@ -32,8 +32,21 @@ public class Cat implements Serializable {
 
     @Override
     public String toString() {
-        return "name='" + name + '\'' +
+        return "{name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
+
+    public void fly() {
+        System.out.println("cat is flying");
+    }
+
+    public void food(String food) {
+        System.out.println("cat is eating");
+    }
+
+    private void privateMethod(String name) {
+        this.setName(name);
+        System.out.println("private Cat" + name);
+    }   
 }
