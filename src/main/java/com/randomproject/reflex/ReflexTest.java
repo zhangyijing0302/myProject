@@ -1,13 +1,17 @@
 package com.randomproject.reflex;
 
 import com.randomproject.entity.Cat;
+import org.junit.Test;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.Constructor;
 
 /**
+ * 反射
  * @author ZhangYijing
- * @Description
- * @Date 2022/4/21
  */
 public class ReflexTest {
 
@@ -20,5 +24,22 @@ public class ReflexTest {
         cat2.setName("bb");
         System.out.println(cat1);
         System.out.println(cat2);
+    }
+
+    @Test
+    public void test1() throws Exception{
+        Cat c = new Cat();
+        c.setName("猫猫");
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("catFile"));
+        oos.writeObject(c);
+        oos.flush();
+        oos.close();
+    }
+
+    @Test
+    public void test2() throws Exception {
+        ObjectInputStream catFile = new ObjectInputStream(new FileInputStream("catFile"));
+        Cat o = (Cat)catFile.readObject();
+        System.out.println(o);
     }
 }
