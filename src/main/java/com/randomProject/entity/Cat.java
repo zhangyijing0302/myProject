@@ -48,5 +48,11 @@ public class Cat implements Serializable {
     private void privateMethod(String name) {
         this.setName(name);
         System.out.println("private Cat" + name);
-    }   
+    }
+
+    private void privateMethod(String name, String s, Integer age) {
+        this.setName(name);
+        this.setAge(age);
+        System.out.println("private Cat" + name);
+    }
 }
