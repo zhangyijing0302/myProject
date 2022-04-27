@@ -1,4 +1,4 @@
-package com.randomproject.company.xyxx;
+package com.randomProject.company.xyxx;
 
 /**
  * 考虑静态内部类实现
