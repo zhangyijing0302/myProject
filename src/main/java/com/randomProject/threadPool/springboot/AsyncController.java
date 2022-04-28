@@ -1,4 +1,4 @@
-package com.randomProject.thread.springboot;
+package com.randomProject.threadPool.springboot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

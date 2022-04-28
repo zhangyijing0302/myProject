@@ -1,4 +1,4 @@
-package com.randomProject.thread.springboot;
+package com.randomProject.threadPool.springboot;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;

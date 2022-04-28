@@ -12,7 +12,7 @@ import java.util.Objects;
 public class Student {
     private Integer id;
     private String name;
-    private Long age;
+    private Integer age;
     private BigDecimal account;
 
     public Student(String name) {
@@ -30,10 +30,17 @@ public class Student {
     public Student() {
     }
 
-    public Student(Integer id, String name, Long age) {
+    public Student(Integer id, String name, Integer age) {
         this.id = id;
         this.name = name;
         this.age = age;
+    }
+
+    public Student(Integer id, String name, Integer age, BigDecimal account) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.account = account;
     }
 
     public Integer getId() {
@@ -52,11 +59,11 @@ public class Student {
         this.name = name;
     }
 
-    public Long getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(Long age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -70,11 +77,11 @@ public class Student {
     }
 
     public static List<Student> getStudents() {
-        Student student1 = new Student(1, "zhangsan", 11L);
-        Student student2 = new Student(2, null, 14L);
-        Student student3 = new Student(3, "zhangsan", 15L);
-        Student student4 = new Student(1, "zhaoliu", 13L);
-        Student student5 = new Student(1, "chenqi", 19L);
+        Student student1 = new Student(1, "zhangsan", 11);
+        Student student2 = new Student(2, null, 14);
+        Student student3 = new Student(3, "zhangsan", 15);
+        Student student4 = new Student(1, "zhaoliu", 13);
+        Student student5 = new Student(1, "chenqi", 19);
 
         List<Student> students = new ArrayList<>();
         students.add(student1);

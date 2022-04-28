@@ -1,8 +1,7 @@
-package com.randomProject.thread;
+package com.randomProject.threadPool;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
-import java.security.AccessController;
 import java.util.concurrent.*;
 
 /**
@@ -12,7 +11,7 @@ import java.util.concurrent.*;
 public class ThreadPoolExecutorsCase {
     public static void main(String[] args) {
         // 使用guava包中的ThreadFactoryBuilder工厂类指定线程组的名称，构建线程池工工厂
-        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("zhangyijing-thread-pool-d%").build();
+        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("zhangyijing-threadPool-pool-d%").build();
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 10, 60L, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(10), threadFactory, new ThreadPoolExecutor.AbortPolicy());
         // 三种线程池提交任务的方式submit(Callable<T> task)、execute(Runnable command)、submit(Runnable task)
 //        threadPoolExecutor.submit()
