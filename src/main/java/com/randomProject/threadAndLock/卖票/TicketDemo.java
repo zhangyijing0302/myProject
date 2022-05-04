@@ -2,7 +2,6 @@ package com.randomProject.threadAndLock.卖票;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class TicketDemo {
 
