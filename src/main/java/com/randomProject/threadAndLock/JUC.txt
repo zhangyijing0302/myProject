@@ -1,0 +1,44 @@
+1.什么是JUC？
+    Java.util.concurrent包
+Java.util.concurrent.Callable
+Java.util.concurrent.Lock
+
+2.线程和进程？
+    1.进程：一个程序，一个进程往往包含多个线程，且至少包含一个线程。
+    Java默认有几个线程，2个，main和GC
+    2.线程：
+    JAVA中开启线程的三种方式，Thread、Runnable、Callable
+    JAVA真的能开启线程吗？JAVA中启动线程是通过 private native void start0();调用的底层的C++，所以JAVA无法直接操作硬件
+
+3.并发、并行
+并发，多线程操作同一个资源，多个线程在同一个时间间隔发生，一台处理器同时处理多个任务
+并行，多个线程同时运行，多个处理器同时处理多个任务
+并发编程的本质：充分利用CPU的资源
+
+4.线程有几个状态  6个 Thread.State枚举类
+    // 新建 NEW,
+    // 运行 RUNNABLE,
+    // 阻塞 BLOCKED,
+    // 等待，死等 WAITING,
+    // 超时等待 TIMED_WAITING,
+    // 终止 TERMINATED;
+
+5.wait\sleep的区别
+    1.java.lang.Object.wait() java.lang.Thread.sleep(long)
+    2.wait会释放锁，sleep会抱着锁睡觉
+    3.适用范围，wait只能在同步代码块中用，sleep可以任何地方睡
+    4.都需要捕获线程中断异常
+    5.wait需要被唤醒、sleep自己可以醒
+
+6.Lock锁
+    传统的synchronized，排队
+    java.util.concurrent.locks.Lock接口，有三个实现类
+        1.java.util.concurrent.locks.ReentrantLock.ReentrantLock(); 常用的可重入锁
+        2.ReentrantReadWriteLock.ReadLock 读锁
+        3.ReentrantReadWriteLock.WriteLock 写锁
+    // 可重入锁构造方法，默认是非公平锁，可以指定boolean值
+    public ReentrantLock(boolean fair) {
+        sync = fair ? new FairSync() : new NonfairSync();
+    }
+    公平锁：先来后到
+    非公平锁：可能发生插队
