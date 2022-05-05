@@ -50,6 +50,7 @@ class Ticket2 {
     public void sale() {
         // 加锁
         lock.lock();
+        boolean b = lock.tryLock();
         try {
             if (number > 0) {
                 System.out.println(Thread.currentThread().getName() + "卖出第" + number-- + "票，剩余" + number);
