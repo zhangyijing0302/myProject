@@ -57,4 +57,7 @@ Java.util.concurrent.Lock
 
 
 8.锁是什么，如何判断锁的是谁
+    无非两种 new 或者 static静态加载的
+    new 是具体的对象 锁对象锁的是对象的调用者，new多个对象就相当于有多把锁互不相干
+    static 锁的是类模板，类模板全局唯一
 
