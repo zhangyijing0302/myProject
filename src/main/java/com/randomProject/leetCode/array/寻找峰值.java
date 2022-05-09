@@ -1,4 +1,4 @@
-package com.randomProject.leetCode.Str;
+package com.randomProject.leetCode.array;
 
 /**
  * 山峰元素是指其值大于或等于左右相邻值的元素。给定一个输入数组nums，

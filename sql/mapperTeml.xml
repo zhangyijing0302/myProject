@@ -1,0 +1,51 @@
+-- mysql批量插入模板
+<insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated generated on Mon Aug 16 18:27:24 CST 2021.-->
+    insert into otcd_recon_va_sys
+    (tradingAcctNo, exchId, stkId, tradeDate, bsType, notionalRecon, quantityRecon, priceRecon,
+    strikeRecon, amountRecon)
+    values
+    <foreach collection="list" item="item" separator=",">
+        (#{item.tradingAcctNo,jdbcType=VARCHAR}, #{item.exchId,jdbcType=VARCHAR}, #{item.stkId,jdbcType=VARCHAR},
+        #{item.tradeDate,jdbcType=BIGINT}, #{item.bsType,jdbcType=VARCHAR}, #{item.notionalRecon,jdbcType=DECIMAL},
+        #{item.quantityRecon,jdbcType=BIGINT}, #{item.priceRecon,jdbcType=DECIMAL}, #{item.strikeRecon,jdbcType=DECIMAL},
+        #{item.amountRecon,jdbcType=DECIMAL})
+    </foreach>
+</insert>
+        -- oracle批量插入模板
+<insert id="batchInsert"  parameterType="map"   databaseId="oracle">
+<!--@mbg.generated generated on Mon Aug 16 18:27:24 CST 2021.-->
+insert into otcd_recon_va_sys
+(tradingAcctNo, exchId, stkId, tradeDate, bsType, notionalRecon, quantityRecon, priceRecon,
+strikeRecon, amountRecon)
+(
+<foreach collection="list" item="item" separator="union all">
+    select
+    #{item.tradingAcctNo,jdbcType=VARCHAR}, #{item.exchId,jdbcType=VARCHAR}, #{item.stkId,jdbcType=VARCHAR},
+    #{item.tradeDate,jdbcType=BIGINT}, #{item.bsType,jdbcType=VARCHAR}, #{item.notionalRecon,jdbcType=DECIMAL},
+    #{item.quantityRecon,jdbcType=BIGINT}, #{item.priceRecon,jdbcType=DECIMAL}, #{item.strikeRecon,jdbcType=DECIMAL},
+    #{item.amountRecon,jdbcType=DECIMAL}
+    FROM DUAL
+</foreach>
+)
+</insert>
+        -- mysql批量更新模板
+<update id="updateBatch" parameterType="java.util.List">
+update otcd_sub_contract_event_log
+<trim prefix="set" suffixOverrides=",">
+    <trim prefix="eventType = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.eventType,jdbcType=VARCHAR}
+        </foreach>
+    </trim>
+    <trim prefix="tradingAcctNo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.tradingAcctNo,jdbcType=VARCHAR}
+        </foreach>
+    </trim>
+</trim>
+where id in
+<foreach close=")" collection="list" item="item" open="(" separator=", ">
+    #{item.id,jdbcType=BIGINT}
+</foreach>
+</update>

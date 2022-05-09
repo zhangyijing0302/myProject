@@ -1,3 +1,6 @@
+-- mysql主键冲突解决方案
+insert into stuTable (id, stuName, age) values (1, "zhangsan", 18) on duplicate key update stuName = "lisi", age = 17;
+replace insert into stuTable (id, stuName, age) values (1, "zhangsan", 18)
 
 -- 建表脚本
 delimiter $$

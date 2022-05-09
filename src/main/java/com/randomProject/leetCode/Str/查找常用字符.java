@@ -1,4 +1,4 @@
-package com.randomProject.leetCode.array;
+package com.randomProject.leetCode.Str;
 
 import org.junit.Test;
 

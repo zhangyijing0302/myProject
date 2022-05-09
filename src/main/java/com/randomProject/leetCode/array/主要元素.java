@@ -4,13 +4,15 @@ import org.junit.Test;
 
 /**
  * 数组中占比超过一半的元素称之为主要元素。给定一个整数数组，找到它的主要元素。若没有，返回-1
+ *
+ * 超过一半的元素必连续出现起码1次
  * @author admin
  */
 public class 主要元素 {
 
     @Test
     public void test() {
-        int[] array = {1,2,2,2,2,2,2,2,2,2,5,9,5,9,5,5,5};
+        int[] array = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 3, 2, 3, 2, 5, 2};
         System.out.println(testcase(array));
     }
 
