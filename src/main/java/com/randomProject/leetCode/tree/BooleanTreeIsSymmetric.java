@@ -32,7 +32,7 @@ public class BooleanTreeIsSymmetric {
         if (left == null || right == null) {
             return false;
         }
-        return left.value.equals(right.value) && check(left.left, right.right) && check(left.right, right.left);
+        return left.value == right.value && check(left.left, right.right) && check(left.right, right.left);
     }
 
     /**
@@ -59,7 +59,7 @@ public class BooleanTreeIsSymmetric {
             if (left == null || right == null) {
                 return false;
             }
-            if (!right.value.equals(left.value)) {
+            if (right.value != left.value) {
                 return false;
             }
             queue.offer(left.left);

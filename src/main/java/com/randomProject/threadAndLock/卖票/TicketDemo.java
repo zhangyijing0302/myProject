@@ -49,8 +49,9 @@ class Ticket2 {
     // 卖票传统的方法
     public void sale() {
         // 加锁
+
+//        boolean b = lock.tryLock();
         lock.lock();
-        boolean b = lock.tryLock();
         try {
             if (number > 0) {
                 System.out.println(Thread.currentThread().getName() + "卖出第" + number-- + "票，剩余" + number);

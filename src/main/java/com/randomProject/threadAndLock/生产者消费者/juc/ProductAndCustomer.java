@@ -42,8 +42,8 @@ class Data2 {
     Condition condition = lock.newCondition();
 
     public void increment() {
+        lock.lock();
         try {
-            lock.lock();
             while (num != 0) {
                 condition.await();
             }
@@ -61,8 +61,8 @@ class Data2 {
     }
 
     public void decrement() {
+        lock.lock();
         try {
-            lock.lock();
             while (num == 0) {
                 condition.await();
             }

@@ -6,25 +6,25 @@ package com.randomProject.entity;
  * @Date 2022/5/9
  */
 public class BinaryTreeNode {
-    public String value;
+    public int value;
     public BinaryTreeNode left;
     public BinaryTreeNode right;
 
     public BinaryTreeNode() {
     }
 
-    public BinaryTreeNode(String value) {
+    public BinaryTreeNode(int value) {
         this.value = value;
     }
 
     public static BinaryTreeNode buildTree() {
-        BinaryTreeNode root = new BinaryTreeNode("ROOT");
-        BinaryTreeNode l1Left = new BinaryTreeNode("1L");
-        BinaryTreeNode l1Right = new BinaryTreeNode("1R");
-        BinaryTreeNode l21Left = new BinaryTreeNode("1L1L");
-        BinaryTreeNode l21Right = new BinaryTreeNode("1L1R");
-        BinaryTreeNode l22Left = new BinaryTreeNode("1L2L");
-        BinaryTreeNode l22Right = new BinaryTreeNode("1L2R");
+        BinaryTreeNode root = new BinaryTreeNode(5);
+        BinaryTreeNode l1Left = new BinaryTreeNode(3);
+        BinaryTreeNode l1Right = new BinaryTreeNode(7);
+        BinaryTreeNode l21Left = new BinaryTreeNode(2);
+        BinaryTreeNode l21Right = new BinaryTreeNode(4);
+        BinaryTreeNode l22Left = new BinaryTreeNode(6);
+        BinaryTreeNode l22Right = new BinaryTreeNode(8);
 
         root.left = l1Left;
         root.right = l1Right;

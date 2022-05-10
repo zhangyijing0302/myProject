@@ -8,19 +8,15 @@ drop procedure IF EXISTS basicexecutUpdateSql $$
 create procedure basicexecutUpdateSql()
 begin
     declare v_l_count int;
-    SELECT COUNT(1) INTO v_l_count from INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = SCHEMA() and UPPER(TABLE_NAME) = UPPER('base_OrganRelated');
+    SELECT COUNT(1) INTO v_l_count from INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = SCHEMA() and UPPER(TABLE_NAME) = UPPER('stuTable');
     IF v_l_count = 0 THEN
-    create table base_OrganRelated (
-        organRelatedId       INT(10) not null,
-        institutionCode      VARCHAR(32),
-        outerOrgId           INT(10),
-        relatedDimension     INT(10),
-        operatorCode         VARCHAR(64),
-        createTime           BIGINT(14),
-        updateTime           BIGINT(14),
-        constraint PK_BASE_ORGANRELATED primary key (organRelatedId)
+    create table stuTable (
+        id       INT(10) not null,
+        stuName      VARCHAR(32),
+        age           INT(10),
+        constraint PK_BASE_ORGANRELATED primary key (id)
     );
-    insert into base_OrganRelated select * from rmc_OrganRelated;
+    insert into stuTable select * from stuOtherTable;
     END IF ;
 end $$
 call basicexecutUpdateSql() $$
@@ -34,11 +30,9 @@ create procedure basicexecutUpdateSql()
 begin
     declare v_rowcount int;
     select count(1) into v_rowcount from information_schema.columns
-    where table_schema= SCHEMA() and
-        UPPER(table_name)=UPPER('BASE_TABLELAYOUTINFO') and
-        UPPER(column_name)=UPPER('ISENABLE');
+        where table_schema= SCHEMA() and UPPER(table_name)=UPPER('stuTable') and UPPER(column_name)=UPPER('gender');
     if v_rowcount = 1 then
-    ALTER TABLE BASE_TABLELAYOUTINFO MODIFY COLUMN ISENABLE INT(1) not null;
+        ALTER TABLE stuTable MODIFY COLUMN gender INT(1) not null;
     end if;
 end $$
 call basicexecutUpdateSql() $$

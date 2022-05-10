@@ -1,5 +1,6 @@
 package com.randomProject.spring.autowired;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 /**
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
  * @Description
  * @Date 2022/5/9
  */
+@Primary
 @Service
 public class AutowiredImpl2 implements AutowiredInterface{
     @Override

@@ -1,4 +1,4 @@
-package com.randomProject.sourceCode;
+package com.randomProject.sourceCodeAndStructure;
 
 import com.randomProject.entity.HashSetEntity;
 import org.junit.Test;

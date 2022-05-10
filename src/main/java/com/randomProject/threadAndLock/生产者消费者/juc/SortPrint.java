@@ -40,8 +40,8 @@ class Data3 {
 
 
     public void printA() {
+        lock.lock();
         try {
-            lock.lock();
             while (num != 1) {
                 condition1.await();
             }
@@ -57,8 +57,8 @@ class Data3 {
     }
 
     public void printB() {
+        lock.lock();
         try {
-            lock.lock();
             while (num != 2) {
                 condition2.await();
             }
@@ -73,8 +73,9 @@ class Data3 {
     }
 
     public void printC() {
+        lock.lock();
         try {
-            lock.lock();
+
             while (num != 3) {
                 condition3.await();
             }
