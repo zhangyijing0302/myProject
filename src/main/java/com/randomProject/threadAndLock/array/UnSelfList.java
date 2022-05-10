@@ -1,10 +1,7 @@
 package com.randomProject.threadAndLock.array;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * 3.new CopyOnWriteArrayList<>(); CopyOnWrite写入时复制，多个线程调用的时候，list在读取的时候 是固定的，但写入的时候可能存在一种覆盖操作，
  * @author admin
  */
-public class unSelfList {
+public class UnSelfList {
     public static void main(String[] args) throws InterruptedException {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
@@ -36,6 +33,12 @@ public class unSelfList {
         System.out.println(list);
         List<Object> objects = Collections.synchronizedList(new ArrayList<>());
 
-        List<Object> objects1 = new CopyOnWriteArrayList<>();
+        CopyOnWriteArrayList<Object> copyList = new CopyOnWriteArrayList<>();
+        copyList.add("11");
+
+        ListIterator<Object> objectListIterator = copyList.listIterator();
+        // UnsupportedOperationException 实现了ListIterator接口需要重写add方法，但是又不支持这个操作
+        objectListIterator.add("sss");
+
     }
 }
