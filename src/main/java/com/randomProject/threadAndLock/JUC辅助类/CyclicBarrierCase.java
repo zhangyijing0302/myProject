@@ -1,4 +1,4 @@
-package com.randomProject.threadAndLock.辅助类;
+package com.randomProject.threadAndLock.JUC辅助类;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
