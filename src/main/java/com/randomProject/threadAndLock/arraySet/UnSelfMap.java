@@ -1,4 +1,4 @@
-package com.randomProject.threadAndLock.array;
+package com.randomProject.threadAndLock.arraySet;
 
 import com.google.common.collect.Maps;
 

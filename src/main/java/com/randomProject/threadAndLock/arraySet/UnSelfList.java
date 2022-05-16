@@ -1,9 +1,8 @@
-package com.randomProject.threadAndLock.array;
+package com.randomProject.threadAndLock.arraySet;
 
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.TimeUnit;
 
 /**
  * ConcurrentModificationException

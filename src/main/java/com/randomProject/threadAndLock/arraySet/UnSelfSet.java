@@ -1,10 +1,7 @@
-package com.randomProject.threadAndLock.array;
+package com.randomProject.threadAndLock.arraySet;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
