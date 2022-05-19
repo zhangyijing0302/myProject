@@ -77,7 +77,28 @@ Java.util.concurrent.Lock
     3.Semaphore 信号量 许可证
 
 11.读写锁
-    ReadWriteLock维护了一对关联的locks，一个只用于读，一个只用于写，readLock可以由多个线程读，但是writeLock是独立的。
+    interface ReadWriteLock维护了一对关联的locks，一个只用于读Lock readLock();，一个只用于写Lock writeLock();
+    readLock可以由多个线程读，但是writeLock是独立的。
+    ReadWriteLock lock =  new ReentrantReadWriteLock();
+     lock.writeLock()
+     lock.readLock()
     独占锁就是写锁，写的时候只能有一个线程去写
     共享锁就是读锁，读的时候可以由多个线程去读
     同一个锁下，读完才能写，写完才能读，写的时候其他线程不能写
+
+12.阻塞队列
+    阻塞 写入的时候 如果队列已经满了，就必须进入阻塞等待 读取的时候 如果队列的时候必须阻塞等待生产
+    队列 队列的特性FIFO 先进先出
+    interface BlockingQueue<E> extends Queue<E> extends Collection<E>
+    已知实现类
+    BlockingQueue array = new ArrayBlockingQueue();
+    BlockingQueue licked = new LinkedBlockingQueue();
+    BlockingQueue sync = new SynchronousQueue();
+
+    什么情况下需要调用阻塞队列？
+
+    四组API
+    1.抛出异常
+    2.不抛出异常
+    3.阻塞等待
+    4.超时等待
