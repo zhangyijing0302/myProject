@@ -18,6 +18,12 @@ public class Test01 {
         System.out.println("aaa");
     }
 
+    @Test
+    public void test2() {
+        String contractType = "ab";
+        System.out.println(contractType.length() >= 3 ? contractType.substring(0,3) : contractType);
+    }
+
     public static void main(String[] args) {
 
     }

@@ -98,7 +98,14 @@ Java.util.concurrent.Lock
     什么情况下需要调用阻塞队列？
 
     四组API
-    1.抛出异常
-    2.不抛出异常
+    1.抛出异常  blockingQueue.add("a") blockingQueue.remove()
+    2.不抛出异常，有返回值
     3.阻塞等待
     4.超时等待
+
+    添加操作
+    移除操作
+    判断队列的首
+
+    同步队列 SynchronousQueue 没有容量的概念
+    必须put输入进去一个元素，必须等take取出之后才能放下一个元素
