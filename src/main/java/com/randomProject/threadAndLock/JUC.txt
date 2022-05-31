@@ -109,3 +109,38 @@ Java.util.concurrent.Lock
 
     同步队列 SynchronousQueue 没有容量的概念
     必须put输入进去一个元素，必须等take取出之后才能放下一个元素
+
+13.线程池
+    1.池化技术
+    程序本质上是利用系统的资源，引入池的概念的目的是为了优化资源的使用。
+    常见的有线程池、常量池、连接池、内存池。。。
+    池化技术：池化的目的是为了减少创建、销毁所消耗的资源
+
+    2,线程池的好处
+    降低资源的消耗
+    提高响应的速度
+    方便管理 线程复用、控制最大并发数、管理线程
+
+    3.线程池
+    三个方法
+        1.submit(Callable<T> task)、
+        2.execute(Runnable command)、
+        3.submit(Runnable task)
+    七个参数
+        1.corePoolSize 核心线程大小
+        2.maximumPoolSize 最大核心线程池大小
+        3.keepAliveTime 保持时间（超过这个时间没有人调用就会释放）
+        4.unit 时间单位
+        5.workQueue 阻塞队列
+        6.threadFactory 线程工厂 创建线程
+        7.handler拒绝策略
+    四种拒绝策略
+        1.AbortPolicy 默认拒绝策略 不处理 抛出异常
+        2.CallerRunsPolicy  由调用线程处理
+        3.DiscardPolicy 队列满了之后不会抛出异常
+        4.DiscardOldestPolicy 队列满了之后尝试丢掉最早的线程，也可能最早的线程没有执行结束
+
+    最大核心线程池大小如何设置？
+    1.CPU 密集型 几核的CPU 就是几，可以保持CPU的运行效率最高
+    可以通过Runtime.getRuntime().availableProcessors() 获取主机核心线程数
+    2.IO 密集型 判断程序中消耗IO的线程数，然后大于这个数

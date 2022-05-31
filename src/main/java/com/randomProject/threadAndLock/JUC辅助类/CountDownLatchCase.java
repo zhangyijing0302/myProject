@@ -7,7 +7,6 @@ public class CountDownLatchCase {
     public static void main(String[] args) throws InterruptedException {
         // 参数是初始值
         CountDownLatch countDownLatch = new CountDownLatch(8);
-        countDownLatch.countDown();
 
         for (int i = 0; i < 8; i++) {
             new Thread(() -> {
