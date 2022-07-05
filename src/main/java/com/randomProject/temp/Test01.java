@@ -31,6 +31,14 @@ public class Test01 {
     }
 
 
+    @Test
+    public void test3() {
+        int i = 10;
+        int length = 5;
+        System.out.println(Math.pow(i, (length - 1)));
+
+    }
+
     public static void main(String[] args) {
         HashMap<Object, Object> hashMap = new HashMap<>();
         hashMap.put(1,2);

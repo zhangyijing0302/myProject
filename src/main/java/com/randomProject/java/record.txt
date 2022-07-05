@@ -1,0 +1,7 @@
+1.函数式接口
+    只有一个抽象方法的接口
+    四种原生函数式接口
+    1.Function  函数型接口 有一个输入参数 有一个输出参数 apply
+    2.predicate  断定型接口 test
+    3.Consumer  消费性接口 accept
+    4.supplier  供给型接口 get

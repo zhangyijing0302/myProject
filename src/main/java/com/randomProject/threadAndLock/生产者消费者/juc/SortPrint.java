@@ -4,6 +4,9 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * @author admin
+ */
 public class SortPrint {
     public static void main(String[] args) {
         Data3 data = new Data3();
