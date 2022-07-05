@@ -5,3 +5,9 @@
     2.predicate  断定型接口 test
     3.Consumer  消费性接口 accept
     4.supplier  供给型接口 get
+
+2.流式计算
+
+3.ForkJoin
+    诞生于JDK1.7，并行执行任务提高效率
+    特点：工作窃取,必须是在大数据量下才有使用的必要
