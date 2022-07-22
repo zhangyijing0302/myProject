@@ -1,4 +1,4 @@
-package com.randomProject.threadPool;
+package com.randomProject.threadAndLock.threadPool;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.randomProject.threadPool.springboot;
+package com.randomProject.threadAndLock.threadPool.springboot;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;

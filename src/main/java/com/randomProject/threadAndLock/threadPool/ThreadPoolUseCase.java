@@ -1,6 +1,4 @@
-package com.randomProject.threadPool;
-
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
+package com.randomProject.threadAndLock.threadPool;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;

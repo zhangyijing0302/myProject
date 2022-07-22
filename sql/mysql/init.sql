@@ -10,3 +10,4 @@ FLUSH PRIVILEGES;
 
 -- 连接mysql
 -- mysql -h127.0.0.1 -uomsdb -P3306 -pomsdb --default-character-set=gbk
+-- mysql -uroot -proot -h172.20.1.97 --default-character-set=utf8mb4
