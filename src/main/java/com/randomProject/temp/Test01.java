@@ -85,4 +85,11 @@ public class Test01 {
         hashMap.put(1,2);
     }
 
+    @Test
+    public void test8() {
+        Long ll = null;
+        Long lb = 25666666L;
+        System.out.println(ll < lb);
+    }
+
 }

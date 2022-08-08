@@ -1,4 +1,4 @@
-package com.randomProject.java.function;
+package com.randomProject.threadAndLock.java.function;
 
 /**
  * @author ZhangYijing

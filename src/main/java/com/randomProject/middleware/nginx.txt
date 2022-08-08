@@ -9,19 +9,45 @@
     Nginx，（engine,x），高性能HTTP和反向代理web服务器，同时也提供IMAP/POP3/SMTP等邮件服务。
     占用内存小，并发能力强，支持50,000个并发连接数的响应
 3. 作用
-    1Http代理，反向代理
+    1.Http代理，反向代理
         正向代理：
             比如VPN, 客户端（手机）通过代理服务器（VPN）访问服务器（外网），VPN代理了客户端
         反向代理：
             比如访问百度，客户端（手机）通过反向代理服务器（www.baidu.com），访问服务器（百度的服务器）
-    2负载均衡策略：
+    2.负载均衡策略：
         内置策略：
-            轮询，挨个轮流
-            加权轮询，加权重以后轮流
-            ipHash，对ip地址进行hash，将同一个客户端的请求只发送给特定的服务器进行处理，session不会丢失
+            1.轮询，挨个轮流,如果某一服务器宕机，可以排除在外（默认）
+            upstream backserver {
+               server 192.168.1.62;
+               server 192.168.1.64;
+            }
+            2.加权轮询，加权重以后轮流 能自动根据权重将请求均匀的分布在不同的服务器上，用于后端服务器性能不均匀的情况
+            upstream backserver {
+               server 192.168.1.62  weight=1;
+               server 192.168.1.64  weight=1;
+            }
+            3.ipHash，对ip地址进行hash，将同一个客户端的请求只发送给特定的服务器进行处理，session不会丢失
+            upstream backserver {
+               ip_hash;
+               server 192.168.1.62;
+               server 192.168.1.64;
+            }
+            4.fair 按后端服务器的响应时间来分配请求，响应时间短的优先分配。
+            upstream backserver {
+                server 192.168.1.62;
+                server 192.168.1.64;
+                fair;
+            }
+            5.url_hash 按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。
+            upstream backserver {
+                server 192.168.1.62;
+                server 192.168.1.64;
+                hash $request_uri;
+                hash_method crc32;
+            }
         扩展策略：
             天马行空
-    3动静分离：
+    3.动静分离：
         有些请求需要后端处理，也有一些请求不需要经过后台处理(比如前端的静态文件)，nginx提供了一个静态资源服务器，nginx自己加载，提升访问速度。
 4.nginx命令：
     ./nginx 启动

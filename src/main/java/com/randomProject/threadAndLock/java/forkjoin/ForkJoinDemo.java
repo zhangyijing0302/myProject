@@ -1,4 +1,4 @@
-package com.randomProject.java.forkjoin;
+package com.randomProject.threadAndLock.java.forkjoin;
 
 public class ForkJoinDemo {
     public static void main(String[] args) {

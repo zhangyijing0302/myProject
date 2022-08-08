@@ -1,4 +1,4 @@
-package com.randomProject.java.forkjoin;
+package com.randomProject.threadAndLock.java.forkjoin;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.stream.LongStream;
@@ -40,6 +40,7 @@ public class ForkJoinTest {
      */
     public static void test3() {
         long start = System.currentTimeMillis();
+        // parallel 并行
         long sum = LongStream.rangeClosed(0L, 10_0000_0000L).parallel().reduce(0, Long::sum);
         long end = System.currentTimeMillis();
         System.out.println("结果" + sum + "耗时：" + (end - start));

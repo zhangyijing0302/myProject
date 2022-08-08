@@ -1,4 +1,4 @@
-package com.randomProject.java.straem;
+package com.randomProject.threadAndLock.java.straem;
 
 
 import com.randomProject.entity.StuUser;
