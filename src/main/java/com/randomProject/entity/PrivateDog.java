@@ -6,7 +6,7 @@ package com.randomProject.entity;
  */
 public class PrivateDog {
 
-    public PrivateDog() {
+    private PrivateDog() {
     }
 
     String name;

@@ -3,6 +3,7 @@ package com.randomProject.reflex;
 import com.randomProject.entity.PrivateDog;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 
 /**
  * @author ZhangYijing
@@ -18,6 +19,12 @@ public class PrivateDogReflex {
         PrivateDog o = (PrivateDog)declaredConstructor.newInstance();
         o.setName("zhangsan");
         o.setAge(15);
-        System.out.println();
+        System.out.println(o);
+
+
+        Method setName = aClass.getDeclaredMethod("setName", String.class);
+        setName.invoke(o, "lisi");
+        System.out.println(o);
+
     }
 }
