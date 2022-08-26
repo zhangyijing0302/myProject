@@ -93,6 +93,23 @@ public class Student {
         return students;
     }
 
+
+    public static List<Student> getStudentsWithAmount() {
+        Student student1 = new Student(1, "zhangsan", 11, new BigDecimal("12.88"));
+        Student student2 = new Student(2, "lisi", 14, null);
+        Student student3 = new Student(3, "wangwu", 15, new BigDecimal("12.88"));
+        Student student4 = new Student(1, "zhaoliu", 13, new BigDecimal("12.88"));
+        Student student5 = new Student(1, "chenqi", 19, new BigDecimal("12.88"));
+
+        List<Student> students = new ArrayList<>();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+        students.add(student4);
+        students.add(student5);
+
+        return students;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {

@@ -37,7 +37,7 @@ public class HashSetEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, age);
+        return Objects.hash(id,  age);
     }
 
     @Override

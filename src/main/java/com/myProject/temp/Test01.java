@@ -1,13 +1,13 @@
 package com.myProject.temp;
 
+import com.google.common.collect.Lists;
+import com.myProject.entity.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 /**
@@ -102,5 +102,86 @@ public class Test01 {
         System.out.println(underlyingIdList.contains("zhangsan"));
 
     }
+    @Test
+    public void test21() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        Iterator<Integer> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            Integer integer = iterator.next();
+            if (integer == 2) {
+                list.remove(integer);
+
+            }
+        }
+    }
+    @Test
+    public void test22() {
+        String[] arr = {"a", "b", "c"};
+        List<String> list = Arrays.asList(arr);
+        ArrayList<Object> objects = new ArrayList<>(list);
+        objects.add("d");
+        objects.add("e");
+        objects.remove(objects.size());
+        System.out.println(Arrays.toString(objects.toArray()));
+    }
+    @Test
+    public void test23() {
+        // 判断数组是否包含a
+        String[] arr = {"a", "b", "c"};
+        Set<String> set = new HashSet<>(Arrays.asList(arr));
+        set.add("e");
+        if (set.contains("a")) {
+            System.out.println("contains a");
+        }
+    }
+    @Test
+    public void test24() {
+        // 这段代码能否执行？如果不能执行，会报什么错？如果能执行，是否有问题？
+        List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c", "d"));
+        for (int i = 0; i < list.size(); i++) {
+            list.remove(i);
+        }
+        System.out.println(list);
+    }
+
+    /**
+     * 输入: I am a student 输出: student a am I
+     * >
+     * > #### 输入是数组 输出也是数组 不允许用 split splice reverse
+     */
+    @Test
+    public void test25() {
+        String[] strArr = new String[]{"I", "am", "a", "student"};
+        String[] targetArr = new String[strArr.length];
+        int length = strArr.length;
+        for (int i = 0; i < length; i++) {
+            targetArr[i] = strArr[length - 1 - i];
+        }
+        System.out.println(Arrays.asList(targetArr));
+    }
+    @Test
+    public void test26() {
+        String[] strArr = new String[]{"I", "am", "a", "student"};
+        int length = strArr.length;
+        for (int i = 0; i < length / 2; i++) {
+            String temp = strArr[i];
+            strArr[i] = strArr[length - 1 - i];
+            strArr[length - 1 - i] = temp;
+        }
+        System.out.println(Arrays.asList(strArr));
+    }
+
+    @Test
+    public void test27() {
+        List<Student> studentsWithAmount = Student.getStudentsWithAmount();
+        List<BigDecimal> collect = studentsWithAmount.stream().map(Student::getAccount).collect(Collectors.toList());
+        BigDecimal reduce = studentsWithAmount.stream().map(Student::getAccount).filter(Objects::nonNull).reduce(BigDecimal.ZERO, BigDecimal::add);
+        System.out.println(collect);
+        System.out.println(reduce);
+    }
+
 
 }

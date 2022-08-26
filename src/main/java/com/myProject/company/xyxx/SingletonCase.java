@@ -16,7 +16,7 @@ public class SingletonCase {
     private String userName;
 
     static class SingletonInstance {
-        static SingletonCase instance = new SingletonCase("张三");
+        static final SingletonCase instance = new SingletonCase("张三");
     }
 
     public static SingletonCase getInstance() {
