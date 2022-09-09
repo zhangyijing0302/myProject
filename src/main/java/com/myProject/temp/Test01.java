@@ -1,7 +1,6 @@
 package com.myProject.temp;
 
-import com.google.common.collect.Lists;
-import com.myProject.entity.Student;
+import com.myProject.mvc.entity.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -183,5 +182,21 @@ public class Test01 {
         System.out.println(reduce);
     }
 
+    @Test
+    public void test28() {
+        Integer i = null;
+        System.out.println(i == null || i == 88);
+    }
 
+    @Test
+    public void test29() {
+        Long l1 = Long.valueOf("188");;
+        Long l2 = Long.valueOf("188");;
+        System.out.println(l1 == l2);
+
+
+        Long l3 = Long.valueOf ("88");
+        Long l4 = Long.valueOf("88");
+        System.out.println(l4 == l3);
+    }
 }

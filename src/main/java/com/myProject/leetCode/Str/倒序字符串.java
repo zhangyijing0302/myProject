@@ -3,6 +3,7 @@ package com.myProject.leetCode.Str;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class 倒序字符串 {
 
@@ -31,5 +32,7 @@ public class 倒序字符串 {
             strArr[length - 1 - i] = temp;
         }
         System.out.println(Arrays.asList(strArr));
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
+        objectObjectHashMap.put("1", 122);
     }
 }

@@ -1,6 +1,6 @@
 package com.myProject.leetCode.tree;
 
-import com.myProject.entity.BinaryTreeNode;
+import com.myProject.leetCode.entity.BinaryTreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
