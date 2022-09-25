@@ -1,0 +1,9 @@
+springboot整合redis：
+    自动配置类 RedisAutoConfiguration
+    绑定配置文件类 RedisProperties
+    RedisTemplate redis操作模板
+
+
+
+redis-server加入系统服务
+redis-server --service-install redis.windows.conf

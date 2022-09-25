@@ -11,13 +11,13 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class ReadWriteLockCase {
     public static void main(String[] args) {
         MyCacheLock cache = new MyCacheLock();
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 11; i++) {
             final int fi = i;
             new Thread(() -> {
                 cache.put(fi + "", fi);
             }, "线程" + fi).start();
         }
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 19; i++) {
             final int fi = i;
             new Thread(() -> {
                 cache.get(fi + "");
@@ -32,9 +32,6 @@ public class ReadWriteLockCase {
  */
 class MyCache {
     private volatile Map<String, Object> map = new HashMap<>();
-
-
-
     public void put(String key, Object value) {
         System.out.println(Thread.currentThread().getName() + "线程写入" + key);
         map.put(key, value);

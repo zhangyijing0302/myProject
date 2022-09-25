@@ -5,7 +5,7 @@ import java.util.concurrent.CyclicBarrier;
 
 public class CyclicBarrierCase {
     public static void main(String[] args) {
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(7, () -> {
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(8, () -> {
             System.out.println("召唤神龙");
         });
         for (int i = 0; i < 8; i++) {

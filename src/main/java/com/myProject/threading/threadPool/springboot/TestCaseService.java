@@ -7,10 +7,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
@@ -31,8 +34,10 @@ public class TestCaseService {
     private AsyncManager manager;
 
 
-    @Autowired
-    StuMapper databaseCaseMapper;
+    @Resource
+    StuMapper stuMapper;
+
+    ReadWriteLock lock = new ReentrantReadWriteLock();
 
     public String asyncManagerCase() throws ExecutionException, InterruptedException, TimeoutException {
         List<String> list = new ArrayList<>();
@@ -45,21 +50,53 @@ public class TestCaseService {
         return collect1.toString();
     }
 
-//    List<String> batchGetUserInfoByCompletableFuture(List<String> userNameList) throws InterruptedException, ExecutionException{
-//        List<CompletableFuture<String>>  userInfoFutrues = userNameList.stream()
-//                .map(userName->asyncTask.getUserInfoByCompletableFuture(userName)).collect(Collectors.toList());
-//        return userInfoFutrues.stream().map(CompletableFuture::join).collect(Collectors.toList());
-//    }
-
     @Async("zyjAsyncPool")
-    public void letNumAddOne() {
-        System.out.println("currentThread:" + Thread.currentThread().getName());
-        Student zhangfangxin = databaseCaseMapper.selectStuByName("zhangfangxin");
-        if (zhangfangxin != null) {
-            System.out.println("重复插入");
-        } else {
+    public void threadInsert() {
+        synchronized (TestCaseService.class) {
+            Student zhangfangxin = stuMapper.selectStuByName("zhangfangxin");
+            if (zhangfangxin != null) {
+                System.out.println("重复插入");
+            } else {
+                Student student = new Student(null, "zhangfangxin", 12, BigDecimal.ZERO);
+                stuMapper.insertIntoStu(student);
+            }
+        }
+    }
+
+    @Transactional
+    public void threadInsert2() {
+        Lock readLock = this.lock.readLock();
+        Lock writeLock = this.lock.writeLock();
+
+        try {
+            readLock.lock();
+            Student stu = stuMapper.selectStuByName("zhangfangxin");
+            if (Objects.nonNull(stu)) {
+                System.out.println("重复插入");
+                return;
+            }
+        } finally {
+            readLock.unlock();
+        }
+        try {
+            writeLock.lock();
             Student student = new Student(null, "zhangfangxin", 12, BigDecimal.ZERO);
-            databaseCaseMapper.insertIntoStu(student);
+            stuMapper.insertIntoStu(student);
+        } finally {
+            writeLock.unlock();
+        }
+
+
+    }
+
+    @Transactional
+    public void threadInsert3() {
+        Student stu = stuMapper.selectStuByName("zhangfangxin");
+        if (Objects.isNull(stu)) {
+            Student student = new Student(null, "zhangfangxin", 12, BigDecimal.ZERO);
+            stuMapper.insertIntoStu(student);
+        } else {
+            System.out.println("重复插入");
         }
     }
 

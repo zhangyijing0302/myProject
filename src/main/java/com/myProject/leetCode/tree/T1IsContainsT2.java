@@ -14,15 +14,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class T1IsContainsT2 {
 
     public static void main(String[] args) {
-        ReadWriteLock rwLock = new ReentrantReadWriteLock();
-        Lock lock = rwLock.readLock();
-        lock.lock();
-        try {
-
-        } finally {
-            lock.unlock();
-        }
-        Lock lock1 = rwLock.writeLock();
     }
 
     public boolean isContains(BinaryTreeNode t1, BinaryTreeNode t2) {

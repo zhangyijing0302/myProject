@@ -22,9 +22,7 @@ public class AsyncController {
     @RequestMapping("/asyncCase")
     public String getSomeThing() {
         for (int i = 0; i < 100; i++) {
-            new Thread(() -> {
-                testCaseService.letNumAddOne();
-            }).start();
+            new Thread(() -> testCaseService.threadInsert2()).start();
         }
         return "Hello";
     }
