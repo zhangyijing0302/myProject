@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -198,5 +199,21 @@ public class Test01 {
         Long l3 = Long.valueOf ("88");
         Long l4 = Long.valueOf("88");
         System.out.println(l4 == l3);
+    }
+    @Test
+    public void test30() {
+
+        String fileName = "aaa.pdf";
+        String[] substring = fileName.split("\\.");
+        System.out.println(substring[0]);
+    }
+
+    @Test
+    public void test31() {
+
+        BigDecimal a = new BigDecimal("12.888");
+        BigDecimal bigDecimal = a.setScale(4, RoundingMode.HALF_DOWN);
+        System.out.println(bigDecimal.toString());
+        System.out.println(bigDecimal.toPlainString());
     }
 }

@@ -10,7 +10,6 @@ public class RedissonManager {
     private static Redisson redisson = null;
 
     static {
-        System.out.println("aaa");
         config.useSingleServer().setAddress("redis://127.0.0.1:6379");
         redisson = (Redisson)Redisson.create(config);
     }

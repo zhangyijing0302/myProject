@@ -81,8 +81,13 @@
         <dependency>
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-spring-boot-starter</artifactId>
-            <version>4.1.0</version>
+            <version>4.4.0</version>
         </dependency>
+        <!--
+            springboot2.0之后之前的jedis就被替换成lettuce
+            jedis底层采用的是直接连接，多线程情况下是不安全的，如果要避免的话就需要用到jedis pool连接池
+            lettuce底层采用netty，实例可以在多个线程情况下实现共享，不存在线程不安全的情况，可以减少线程数据。
+        -->
         <dependency>
             <groupId>io.lettuce</groupId>
             <artifactId>lettuce-core</artifactId>

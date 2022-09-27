@@ -10,24 +10,24 @@ public class RedissonLock {
 
     public static void main(String[] args) {
 
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(1000, () -> {
-            System.out.println("召唤神龙");
-        });
+//        CyclicBarrier cyclicBarrier = new CyclicBarrier(1000, () -> {
+//            System.out.println("召唤神龙");
+//        });
         String key = "zhangyijing";
         for (int i = 0; i < 1000; i++) {
             final int j = i;
             new Thread(() ->  {
-                //LockManager.addLock(key);
+                LockManager.addLock(key);
                 count--;
                 System.out.println("第" + j + "次的结果：" + count);
-                //LockManager.unLock(key);
-                try {
-                    cyclicBarrier.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (BrokenBarrierException e) {
-                    e.printStackTrace();
-                }
+                LockManager.unLock(key);
+//                try {
+//                    cyclicBarrier.await();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (BrokenBarrierException e) {
+//                    e.printStackTrace();
+//                }
             }).start();
         }
     }
