@@ -46,6 +46,10 @@ enum 单例枚举 {
     public void doSomeThing () {
         System.out.println("dodododoododo");
     }
+
+    public 单例枚举 getInstance() {
+        return INSTANCE;
+    }
 }
 
 class 饿汉 {
@@ -89,6 +93,29 @@ class 懒汉安全 {
 
 /**
  * 也不太安全
+ *
+ * 懒汉模式不加锁时：
+ * 1.由于没有加锁，当线程A刚执行完if判断INSTANCE为null后还没来得及执行INSTANCE = new Singleton()
+ * 此时线程B进来，if判断后INSTANCE为null，且执行完INSTANCE = new Singleton()
+ * 然后，线程A接着执行，由于之前if判断INSTANCE为null，于是执行INSTANCE = new Singleton()重复创建了对象
+ * 2、由于没有加锁，当线程A刚执行完if判断INSTANCE为null后开始执行 INSTANCE = new Singleton()
+ *  但是注意，new Singleton()这个操作在JVM层面不是一个原子操作
+ * （具体由三步组成：1.为INSTANCE分配内存空间；2.初始化INSTANCE；3.将INSTANCE指向分配的内存空间，
+ *  而且这三步在JVM层面有可能发生指令重排，导致实际执行顺序可能为1-3-2）
+ *  因为new操作不是原子化操作，因此，可能会出现线程A 执行new Singleton()时发生指令重排，
+ *  导致实际执行顺序变为1-3-2，当执行完1-3还没来及执行2时（虽然还没执行2，但是对象的引用已经有了，
+ *  只不过引用的是一个还没初始化的对象），此时线程B进来进行if判断后INSTANCE不为null，
+ *  然后直接把线程A new到一半的对象返回了
+ *
+ * 懒汉模式加synchronized锁和volatile禁止指令重排
+ * 但每次程序进来都需要进入同步代码块，影响性能
+ *
+ * 懒汉模式加两层校验，第一次判断不为null后直接返回
+ * 第二次虽然已经判断过，但是在第一个if和synchronized之间仍有可能被另外线程插入导致第一个if判断为null时
+ * 当进入同步代码块之后再次判断时已经不为null了，所以需要再次判断
+ *
+ *
+ *
  */
 class 懒汉绝对安全 {
 

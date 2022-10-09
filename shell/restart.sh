@@ -40,3 +40,13 @@ fi
 echo "start to deploy $APP_NAME"
 
 nohup java -jar -Dspring.profiles.active=deploy /usr/workspace/otcd/t0/otcd_server-1.0.3.0.jar >/usr/workspace/otcd/t0/nohup.out 2>&1 &
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+echo -e "\n"|nohup /data/otcd/jdk1.8.0_261/bin/java -jar -Dspring.profiles.active=deploy /data/otcd/app/backend/otcd_server-2.0.1.0-test3.jar >/data/otcd/app/backend/nohup.out 2>&1 &
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+kill -9 `ps -ef | grep otcd_server-2.0.1.0-test3.jar | grep -v grep | awk '{print $2}'`
