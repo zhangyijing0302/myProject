@@ -1,0 +1,75 @@
+帮助命令
+    docker version #docker版本信息
+    docker info #docker系统信息 镜像 容器
+    docker --help
+
+镜像命令
+    [root@localhost ~]# docker images
+    REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+    hello-world   latest    feb5d9fea6a5   12 months ago   13.3kB
+    [root@localhost ~]# docker images --help
+
+    Usage:  docker images [OPTIONS] [REPOSITORY[:TAG]]
+
+    List images
+
+    Options:
+      -a, --all             Show all images (default hides intermediate images)
+          --digests         Show digests
+      -f, --filter filter   Filter output based on conditions provided
+          --format string   Pretty-print images using a Go template
+          --no-trunc        Don't truncate output
+      -q, --quiet           Only show image IDs
+
+    [root@localhost ~]# docker images -a
+    REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+    hello-world   latest    feb5d9fea6a5   12 months ago   13.3kB
+    [root@localhost ~]# docker images -q
+    feb5d9fea6a5
+    [root@localhost ~]# docker images -aq
+    feb5d9fea6a5
+
+    REPOSITORY：镜像的仓库源
+    TAG：镜像标签
+    IMAGE ID：镜像id
+    CREATED：创建时间
+    SIZE：镜像大小
+    -a 列出所有镜像
+    -q 只显示镜像id
+
+搜索镜像
+    搜索mysql收藏量大于5000的镜像
+    [root@localhost ~]# docker search mysql --filter=STARS=5000
+    NAME      DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+    mysql     MySQL is a widely used, open-source relation…   13234     [OK]
+    mariadb   MariaDB Server is a high performing open sou…   5062      [OK]
+
+下载镜像
+     docker pull [OPTIONS] NAME[:TAG|@DIGEST]
+
+    [root@localhost ~]# docker pull mysql:8.0.19 #不写tag就是下载最新版
+    8.0.19: Pulling from library/mysql
+    54fec2fa59d0: Pull complete
+    bcc6c6145912: Pull complete
+    951c3d959c9d: Pull complete
+    05de4d0e206e: Pull complete
+    319f0394ef42: Pull complete
+    d9185034607b: Pull complete
+    013a9c64dadc: Pull complete
+    96d4c3d31f9f: Pull complete
+    785bc90808da: Pull complete
+    1339cf094729: Pull complete
+    beb8f531cc37: Pull complete
+    2b40c9f6a918: Pull complete # 分层下载，镜像的核心，联合文件系统 有点就是 我们如果下载其他版本的mysql，可能有的层级就已经下载好了，无需重复下载，只需要下载需要更新的东西
+    Digest: sha256:9643e9fbd6330d10686f8922292dcb20995e7b792c17d4e94ddf95255f1d5449 # 签名
+    Status: Downloaded newer image for mysql:8.0.19 #状态 下载了8.0.19 的mysql镜像
+    docker.io/library/mysql:8.0.19 #真实的地址
+
+删除镜像
+
+    docker rmi [OPTIONS] IMAGE [镜像1id 镜像2id]
+
+    docker rmi -f  $(docker images -aq)
+
+
+
