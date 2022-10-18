@@ -216,4 +216,23 @@ public class Test01 {
         System.out.println(bigDecimal.toString());
         System.out.println(bigDecimal.toPlainString());
     }
+
+    @Test
+    public void test32() {
+
+        Long date = 19980302000000L;
+        System.out.println(Optional.ofNullable(date).orElse(0L) / 10000000000000L == 0);
+        System.out.println(123L / 10L);
+    }
+
+    @Test
+    public void test33() {
+
+        String str = "IC2209";
+        System.out.println("IC2209888".contains(str));
+        boolean equals = str.equals("!");
+        Integer.valueOf(12);
+    }
+
+
 }

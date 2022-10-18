@@ -6,7 +6,7 @@ import java.util.stream.LongStream;
 public class ForkJoinTest {
 
     public static void main(String[] args) {
-        test3();
+        test2();
     }
 
     /**
@@ -30,7 +30,7 @@ public class ForkJoinTest {
         long sum = 0L;
         ForkJoinPool forkJoinPool = new ForkJoinPool();
 
-//        forkJoinPool.execute();
+        //forkJoinPool.execute();
         long end = System.currentTimeMillis();
         System.out.println("结果" + sum + "耗时：" + (end - start));
     }
