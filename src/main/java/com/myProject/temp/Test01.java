@@ -1,5 +1,7 @@
 package com.myProject.temp;
 
+import com.myProject.javaBase.entity.School;
+import com.myProject.javaBase.enums.BsTypeEnum;
 import com.myProject.mvc.entity.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -215,5 +217,9 @@ public class Test01 {
         BigDecimal bigDecimal = a.setScale(4, RoundingMode.HALF_DOWN);
         System.out.println(bigDecimal.toString());
         System.out.println(bigDecimal.toPlainString());
+    }
+    @Test
+    public void test32() {
+        School school = new School();
     }
 }
