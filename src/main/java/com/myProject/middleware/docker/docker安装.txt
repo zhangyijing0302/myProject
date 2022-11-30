@@ -43,7 +43,7 @@
 
 8. 拉取helloWorld镜像
 
-Unable to find image 'hello-world:latest' locally
+Unable to find image 'hello-world:latest' locally  # Docker在本机寻找镜像，没有找到 dockerhub下载
 latest: Pulling from library/hello-world
 2db29710123e: Pull complete
 Digest: sha256:62af9efd515a25f84961b70f973a798d2eca956b1b2b026d0a4a63a3b0b6a3f2
@@ -83,3 +83,10 @@ For more examples and ideas, visit:
     /var/lib/docker
 
 10. 阿里云镜像加速
+
+11. 卸载docker
+    # 删除依赖
+    yum remove docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+    #删除资源
+    rm -rf /var/lib/docker
