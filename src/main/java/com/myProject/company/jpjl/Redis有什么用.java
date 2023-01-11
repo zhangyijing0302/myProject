@@ -19,7 +19,7 @@ public class Redis有什么用 {
      * hash：一条数据就是一个kv对，比如可以保存一个学生对象
      * list：就是列表，花样比较多，跟JAVA里的list差不多，可以模拟队列，先进后出替换元素啊什么的
      * set：跟JAVA里的hashset也差不多，有无序，唯一这些特点
-     * zset：有序的hashset，排序的方式是增加了一个字段，好像是叫score，这个字段专门用来排序的
+     * zset：有序的hashset，排序的方式是增加了一个字段score，这个字段专门用来排序的
      *
      */
 

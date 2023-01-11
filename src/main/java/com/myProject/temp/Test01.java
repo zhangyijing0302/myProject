@@ -138,6 +138,11 @@ public class Test01 {
         if (set.contains("a")) {
             System.out.println("contains a");
         }
+
+
+        Set<String> set2 = new HashSet<>();
+        String str = null;
+        System.out.println(set2.contains(str));
     }
     @Test
     public void test24() {
@@ -222,4 +227,129 @@ public class Test01 {
     public void test32() {
         School school = new School();
     }
+
+    @Test
+    public void test33() {
+
+        String str = "IC2209";
+        System.out.println("IC2209888".contains(str));
+        boolean equals = str.equals("!");
+        Integer.valueOf(12);
+    }
+
+
+    @Test
+    public void test34() {
+
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        list.add("e");
+        list.add("f");
+        list.add("g");
+        list.add("h");
+        list.add("i");
+
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            if (next .equals("h")) {
+                iterator.remove();
+            }
+        }
+        System.out.println(list);
+    }
+
+    @Test
+    public void test35() {
+
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        list.add("e");
+        list.add("f");
+        list.add("g");
+        list.add("h");
+        list.add("i");
+
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            if (next .equals("h")) {
+                iterator.remove();
+                System.out.println(next);
+                continue;
+            }
+            if (next.equals("i")) {
+                System.out.println(next);
+            }
+        }
+        System.out.println(list);
+    }
+
+
+    @Test
+    public void test36() {
+
+       BigDecimal big1 = new BigDecimal("12.888");
+       BigDecimal big2 = new BigDecimal("0");
+        BigDecimal[] bigDecimals = big1.divideAndRemainder(BigDecimal.ONE);
+        System.out.println(bigDecimals[0]);
+        System.out.println(bigDecimals[1].compareTo(BigDecimal.ZERO));
+        System.out.println(big2.divideAndRemainder(BigDecimal.ONE)[0]);
+        BigDecimal bigDecimal = big2.divideAndRemainder(BigDecimal.ONE)[1];
+        System.out.println(bigDecimal.compareTo(BigDecimal.ZERO));
+
+    }
+
+    @Test
+    public void test37() {
+
+        for (int i = 0; i < 10; i++) {
+            if (i > 4) {
+                continue;
+            }
+            for (int j = 0; j < 3; j++) {
+                if (j == 2) {
+                    continue;
+                }
+                System.out.println("第二层" + j);
+            }
+
+            System.out.println("第一层" + i);
+
+        }
+
+    }
+
+    @Test
+    public void test38() {
+
+        ArrayList<Student> objects = new ArrayList<>();
+        Map<BigDecimal, List<Student>> collect = objects.stream().collect(Collectors.groupingBy(Student::getAccount));
+
+        Map<String, String> map = new HashMap<>();
+        String s = map.getOrDefault("", new String());
+        System.out.println(s);
+
+    }
+
+    @Test
+    public void test39() {
+
+        BigDecimal bigDecimal = new BigDecimal("12");
+        System.out.println(bigDecimal.negate().toPlainString());
+
+    }
+
+    @Test
+    public void test40() {
+        Long str = null;
+        System.out.println(str + "-");
+    }
+
 }

@@ -21,7 +21,7 @@ public class TestCase {
 
     @Test
     public void test3() {
-        System.out.println(AbstractEnum.getWayToSchool("1"));
+        System.out.println(AbstractEnum.getWayToSchool("88"));
     }
 
     @Test

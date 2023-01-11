@@ -17,7 +17,7 @@ public class Aba {
                 e.printStackTrace();
             }
             i.compareAndSet(12, 15, i.getStamp(), i.getStamp() + 1);
-            i.compareAndSet(15, 12, i.getStamp(), i.getStamp() + 1);
+            i.compareAndSet(15, 16, i.getStamp(), i.getStamp() + 1);
             System.out.println("a2version>>" + i.getReference());
         }, "a").start();
         new Thread(() -> {
