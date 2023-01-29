@@ -1,6 +1,5 @@
 package com.myProject.juc.readAndWriteLock;
 
-import java.util.concurrent.TimeUnit;
 
 public class UnLockEntity {
     public static final int MAX = 2;

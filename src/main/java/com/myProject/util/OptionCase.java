@@ -1,7 +1,11 @@
 package com.myProject.util;
 
 
-import java.util.Optional;
+import com.myProject.mvc.entity.Student;
+import org.junit.Test;
+import org.springframework.util.CollectionUtils;
+
+import java.util.*;
 
 public class OptionCase {
 
@@ -11,4 +15,27 @@ public class OptionCase {
         System.out.println(Optional.of(str).orElseGet(String::new));
     }
 
+    @Test
+    public void test() {
+        Temp temp = new Temp();
+        System.out.println(temp.getList()); // null
+        System.out.println(CollectionUtils.isEmpty(temp.getList())); // true
+
+        Temp temp1 = null;
+        System.out.println(Optional.ofNullable(temp).map(Temp::getList).orElse(Collections.singletonList("a")));
+        System.out.println(Optional.ofNullable(temp).map(Temp::getList).map(CollectionUtils::isEmpty).orElse(true));
+
+    }
+
+}
+class Temp {
+    List<String> list = Collections.singletonList("g");
+
+    public List<String> getList() {
+        return list;
+    }
+
+    public void setList(List<String> list) {
+        this.list = list;
+    }
 }

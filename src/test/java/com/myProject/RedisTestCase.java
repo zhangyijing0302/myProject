@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class RedisTestCase {
 
     @Autowired
-    @Qualifier("redisTemplate")
+    @Qualifier("redisConfig")
     RedisTemplate<String, Object> redisTemplate;
 
     @Test
