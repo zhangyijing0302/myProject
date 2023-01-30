@@ -1,6 +1,6 @@
 package com.myProject.javaBase.reflex;
 
-import com.myProject.mvc.entity.Cat;
+import com.myProject.springboot.entity.Cat;
 
 import java.lang.reflect.Constructor;
 
@@ -11,7 +11,7 @@ import java.lang.reflect.Constructor;
 public class ReflexTest {
 
     public static void main(String[] args) throws Exception {
-        Class<?> cat = Class.forName("com.myProject.mvc.entity.Cat");
+        Class<?> cat = Class.forName("com.myProject.springboot.entity.Cat");
         Constructor<?> constructor = cat.getConstructor();
         Cat cat1 = (Cat) cat.newInstance();
         cat1.setName("aa");

@@ -1,6 +1,6 @@
 package com.myProject.javaBase.straem;
 
-import com.myProject.mvc.entity.Student;
+import com.myProject.springboot.entity.Student;
 
 import java.util.Collection;
 import java.util.List;

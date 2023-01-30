@@ -1,6 +1,6 @@
 package com.myProject.javaBase.io;
 
-import com.myProject.mvc.entity.Cat;
+import com.myProject.springboot.entity.Cat;
 import org.junit.Test;
 
 import java.io.FileInputStream;

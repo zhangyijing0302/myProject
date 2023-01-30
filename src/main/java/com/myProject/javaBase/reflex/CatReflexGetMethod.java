@@ -1,6 +1,6 @@
 package com.myProject.javaBase.reflex;
 
-import com.myProject.mvc.entity.Cat;
+import com.myProject.springboot.entity.Cat;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  */
 public class CatReflexGetMethod {
     public static void main(String[] args) throws Exception {
-        Class<?> catClass = Class.forName("com.myProject.mvc.entity.Cat");
+        Class<?> catClass = Class.forName("com.myProject.springboot.entity.Cat");
 
         Constructor<?>[] constructors = catClass.getConstructors();
         Cat catObj = (Cat)catClass.newInstance();

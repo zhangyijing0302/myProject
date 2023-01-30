@@ -1,4 +1,4 @@
-package com.myProject.mvc.entity;
+package com.myProject.springboot.entity;
 
 import java.io.Serializable;
 

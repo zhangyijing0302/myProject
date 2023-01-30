@@ -1,6 +1,6 @@
 package com.myProject.javaBase.enumcase;
 
-import com.myProject.spring.utils.SpringContextUtil;
+import com.myProject.springboot.utils.SpringContextUtil;
 import org.apache.commons.lang3.StringUtils;
 
 /**

@@ -1,6 +1,6 @@
-package com.myProject.mvc.dao;
+package com.myProject.springboot.dao;
 
-import com.myProject.mvc.entity.Student;
+import com.myProject.springboot.entity.Student;
 import org.apache.ibatis.annotations.Param;
 
 /**

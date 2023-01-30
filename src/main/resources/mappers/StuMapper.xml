@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.myProject.mvc.dao.StuMapper">
-    <insert id="insertIntoStu" parameterType="com.myProject.mvc.entity.Student">
+<mapper namespace="com.myProject.springboot.dao.StuMapper">
+    <insert id="insertIntoStu" parameterType="com.myProject.springboot.entity.Student">
         insert into stuTable(id, stuName, age, account)
         values (#{stu.id, jdbcType=INTEGER}, #{stu.name, jdbcType=VARCHAR}, #{stu.age, jdbcType=INTEGER}, #{stu.account, jdbcType=DECIMAL})
     </insert>
-    <select id="selectStuByName" resultType="com.myProject.mvc.entity.Student">
+    <select id="selectStuByName" resultType="com.myProject.springboot.entity.Student">
         select * from stuTable where stuName = #{stuName, jdbcType=VARCHAR}
     </select>
 </mapper>

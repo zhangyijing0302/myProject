@@ -1,7 +1,7 @@
 package com.myProject.juc.lock;
 
 
-import com.myProject.mvc.entity.Student;
+import com.myProject.springboot.entity.Student;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;

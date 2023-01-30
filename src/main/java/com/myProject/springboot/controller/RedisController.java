@@ -1,8 +1,8 @@
-package com.myProject.mvc.controller;
+package com.myProject.springboot.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.myProject.mvc.entity.Cat;
-import com.myProject.mvc.service.RedisService;
+import com.myProject.springboot.service.RedisService;
+import com.myProject.springboot.entity.Cat;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
 package com.myProject.util;
 
 
-import com.myProject.mvc.entity.Student;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 

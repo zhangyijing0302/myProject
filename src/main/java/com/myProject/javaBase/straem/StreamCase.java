@@ -1,7 +1,7 @@
 package com.myProject.javaBase.straem;
 
 
-import com.myProject.mvc.entity.StuUser;
+import com.myProject.springboot.entity.StuUser;
 import org.junit.Test;
 
 import java.util.ArrayList;

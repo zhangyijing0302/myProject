@@ -1,6 +1,6 @@
 package com.myProject.company.jpjl;
 
-import com.myProject.mvc.entity.Cat;
+import com.myProject.springboot.entity.Cat;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;

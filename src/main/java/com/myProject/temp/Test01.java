@@ -1,8 +1,9 @@
 package com.myProject.temp;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.myProject.javaBase.entity.School;
-import com.myProject.javaBase.enums.BsTypeEnum;
-import com.myProject.mvc.entity.Student;
+import com.myProject.springboot.entity.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -347,9 +348,31 @@ public class Test01 {
     }
 
     @Test
+    public void test41() {
+       int i = 88;
+        System.out.println(i<<1);
+    }
+    @Test
     public void test40() {
-        Long str = null;
-        System.out.println(str + "-");
+        Integer i1 = 1024;
+        Integer i2 = 21;
+        System.out.println(i1 / i2);
+    }
+
+    @Test
+    public void test42() throws JsonProcessingException {
+        Student student = new Student();
+        student.setName("dashabi");
+        testObject(student);
+    }
+
+
+
+    private void testObject(Object object) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map map = mapper.readValue(mapper.writeValueAsString(object), Map.class);
+        Object name = map.get("seax");
+        System.out.println(name);
     }
 
 }

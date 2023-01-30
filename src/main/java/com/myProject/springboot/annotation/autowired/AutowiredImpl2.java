@@ -1,4 +1,4 @@
-package com.myProject.spring.autowired;
+package com.myProject.springboot.annotation.autowired;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

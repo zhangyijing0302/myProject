@@ -1,7 +1,7 @@
-package com.myProject.mvc.controller;
+package com.myProject.springboot.controller;
 
-import com.myProject.mvc.entity.Student;
-import com.myProject.mvc.service.StuService;
+import com.myProject.springboot.entity.Student;
+import com.myProject.springboot.service.StuService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

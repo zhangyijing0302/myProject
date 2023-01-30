@@ -1,7 +1,7 @@
 package com.myProject.juc.threadPool.springboot;
 
-import com.myProject.mvc.dao.StuMapper;
-import com.myProject.mvc.entity.Student;
+import com.myProject.springboot.dao.StuMapper;
+import com.myProject.springboot.entity.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;

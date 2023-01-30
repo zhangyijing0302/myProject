@@ -1,6 +1,6 @@
 package com.myProject;
 
-import com.myProject.spring.autowired.AutowiredInterface;
+import com.myProject.springboot.annotation.autowired.AutowiredInterface;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

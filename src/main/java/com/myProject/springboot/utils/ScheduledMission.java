@@ -1,4 +1,4 @@
-package com.myProject.spring.utils.scheduled;
+package com.myProject.springboot.utils;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;

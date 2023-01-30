@@ -1,4 +1,4 @@
-package com.myProject.spring.utils;
+package com.myProject.springboot.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StopWatch;

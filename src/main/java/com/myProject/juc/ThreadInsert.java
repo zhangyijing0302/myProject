@@ -1,6 +1,6 @@
 package com.myProject.juc;
 
-import com.myProject.mvc.dao.StuMapper;
+import com.myProject.springboot.dao.StuMapper;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

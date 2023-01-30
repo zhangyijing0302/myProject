@@ -1,5 +1,6 @@
-package com.myProject.mvc.entity;
+package com.myProject.springboot.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.Objects;
  * 学生
  * @author ZhangYijing
  */
-public class Student {
+public class Student implements Serializable {
     private Integer id;
     private String name;
     private Integer age;
