@@ -1,4 +1,4 @@
-package com.myProject.juc.threadPool.springboot;
+package com.myProject.juc.threadPool;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;

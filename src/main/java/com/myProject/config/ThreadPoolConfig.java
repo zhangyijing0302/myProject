@@ -1,4 +1,4 @@
-package com.myProject.juc.threadPool.springboot;
+package com.myProject.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;

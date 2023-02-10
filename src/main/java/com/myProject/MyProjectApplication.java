@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * @author admin
  */
 @EnableAsync
-@MapperScan(basePackages = {"com.myProject.mvc.dao"})
+@MapperScan(basePackages = {"com.myProject.springboot.dao"})
 @SpringBootApplication
 public class MyProjectApplication {
 

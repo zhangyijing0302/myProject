@@ -18,7 +18,6 @@ public class RedisController {
 
     @ApiOperation("第一个放进Redis的key")
     @PostMapping("/firstKey")
-
     public Cat test1() {
         try {
             Cat test = redisService.test();

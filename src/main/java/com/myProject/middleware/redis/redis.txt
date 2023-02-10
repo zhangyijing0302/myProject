@@ -1,9 +1,14 @@
 springboot整合redis：
-    自动配置类 RedisAutoConfiguration
-    绑定配置文件类 RedisProperties
+    自动配置类 RedisAutoConfiguration 通过注解@ConditionalOnMissingBean(name = "redisTemplate")在系统中没有自定义redisTemplate时生效
+    绑定配置文件类 RedisProperties  application配置文件中可配置的项
     RedisTemplate redis操作模板
-
-
 
 redis-server加入系统服务
 redis-server --service-install redis.windows.conf
+
+redis五大数据类型
+1.strings
+2.hashes hset myhash name zhangsan / hget myhash name
+3.list redis中可以用list模拟 栈、堆、阻塞队列 lpush list one two three  / lrange list 0 -1
+4.set  sadd myset hello 给set集合添加元素、set中不能有重复元素  / SMEMBERS set # 查看set集合元素
+5.zSet set的基础上，增加了一个值，set k1 v1 || zset k1 score1 v1  / zadd zset 1 one

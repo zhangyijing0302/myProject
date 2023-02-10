@@ -1,5 +1,6 @@
-package com.myProject.juc.threadPool.springboot;
+package com.myProject.springboot.controller;
 
+import com.myProject.springboot.service.AsyncCaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +18,12 @@ import java.util.concurrent.TimeoutException;
 public class AsyncController {
 
     @Autowired
-    TestCaseService testCaseService;
+    AsyncCaseService asyncCaseService;
 
     @RequestMapping("/asyncCase")
     public String getSomeThing() {
         for (int i = 0; i < 100; i++) {
-            new Thread(() -> testCaseService.threadInsert2()).start();
+            new Thread(() -> asyncCaseService.threadInsert2()).start();
         }
         return "Hello";
     }
@@ -30,7 +31,7 @@ public class AsyncController {
     @RequestMapping("/asyncTask")
     public String getTask() {
         try {
-            String s = testCaseService.asyncManagerCase();
+            String s = asyncCaseService.asyncManagerCase();
             return s;
         } catch (ExecutionException e) {
         } catch (InterruptedException e) {

@@ -1,11 +1,13 @@
 package com.myProject.springboot.dao;
 
 import com.myProject.springboot.entity.Student;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
  * @author ZhangYijing
  */
+@Mapper
 public interface StuMapper {
     /**
      * 学生对象插入

@@ -365,6 +365,13 @@ public class Test01 {
         student.setName("dashabi");
         testObject(student);
     }
+    @Test
+    public void test43() throws JsonProcessingException {
+        List<String> list = null;
+        for (String s : list) {
+            System.out.println(s);
+        }
+    }
 
 
 

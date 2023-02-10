@@ -1,6 +1,8 @@
 package com.myProject.javaBase.entity;
 
-public class School {
+import java.io.Serializable;
+
+public class School implements Cloneable, Serializable {
     private String scName;
 
     public String getScName() {
@@ -13,5 +15,10 @@ public class School {
 
     public static void goBack() {
         System.out.println("倒闭");
+    }
+
+    @Override
+    public School clone() throws CloneNotSupportedException {
+        return (School)super.clone();
     }
 }

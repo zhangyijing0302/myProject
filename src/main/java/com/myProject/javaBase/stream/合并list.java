@@ -1,4 +1,4 @@
-package com.myProject.javaBase.straem;
+package com.myProject.javaBase.stream;
 
 import com.myProject.springboot.entity.Student;
 

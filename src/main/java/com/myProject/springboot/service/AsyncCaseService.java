@@ -1,4 +1,4 @@
-package com.myProject.juc.threadPool.springboot;
+package com.myProject.springboot.service;
 
 import com.myProject.springboot.dao.StuMapper;
 import com.myProject.springboot.entity.Student;
@@ -8,7 +8,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,17 +22,17 @@ import java.util.stream.Collectors;
 
 /**
  * 多线程测试类
+ *
  * @author ZhangYijing
  */
 @Slf4j
 @Service
-public class TestCaseService {
+public class AsyncCaseService {
 
     @Autowired
     private AsyncManager manager;
 
-
-    @Resource
+    @Autowired
     StuMapper stuMapper;
 
     ReadWriteLock lock = new ReentrantReadWriteLock();
@@ -51,7 +50,7 @@ public class TestCaseService {
 
     @Async("zyjAsyncPool")
     public void threadInsert() {
-        synchronized (TestCaseService.class) {
+        synchronized (AsyncCaseService.class) {
             Student zhangfangxin = stuMapper.selectStuByName("zhangfangxin");
             if (zhangfangxin != null) {
                 System.out.println("重复插入");

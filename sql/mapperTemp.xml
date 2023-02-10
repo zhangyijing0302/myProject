@@ -8,12 +8,14 @@
     <foreach collection="list" item="item" separator=",">
         (#{item.tradingAcctNo,jdbcType=VARCHAR}, #{item.exchId,jdbcType=VARCHAR}, #{item.stkId,jdbcType=VARCHAR},
         #{item.tradeDate,jdbcType=BIGINT}, #{item.bsType,jdbcType=VARCHAR}, #{item.notionalRecon,jdbcType=DECIMAL},
-        #{item.quantityRecon,jdbcType=BIGINT}, #{item.priceRecon,jdbcType=DECIMAL}, #{item.strikeRecon,jdbcType=DECIMAL},
+        #{item.quantityRecon,jdbcType=BIGINT}, #{item.priceRecon,jdbcType=DECIMAL},
+        #{item.strikeRecon,jdbcType=DECIMAL},
         #{item.amountRecon,jdbcType=DECIMAL})
     </foreach>
 </insert>
-        -- oracle批量插入模板
-<insert id="batchInsert"  parameterType="map"   databaseId="oracle">
+
+-- oracle批量插入模板
+<insert id="batchInsert" parameterType="map" databaseId="oracle">
 <!--@mbg.generated generated on Mon Aug 16 18:27:24 CST 2021.-->
 insert into otcd_recon_va_sys
 (tradingAcctNo, exchId, stkId, tradeDate, bsType, notionalRecon, quantityRecon, priceRecon,
@@ -48,4 +50,8 @@ where id in
 <foreach close=")" collection="list" item="item" open="(" separator=", ">
     #{item.id,jdbcType=BIGINT}
 </foreach>
+
+<select id="queryCCC">
+    select * from studentTable where age <![CDATA[<=]]]> 18
+</select>
 </update>
