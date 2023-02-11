@@ -1,6 +1,10 @@
 package com.myProject.javaBase.base;
 
 /**
+ * 双亲委派（Parents Delegation Model）
+ *
+ * 向上穿透 拓展类加载器和核心类库 两个亲人
+ *
  * Java源代码 -> .class的字节码文件 -> ClassLoader负责将这些class文件给加载到JVM中
  *
  * JVM中提供了三层的ClassLoader：
@@ -18,7 +22,10 @@ package com.myProject.javaBase.base;
  * 如果没有，那么会拿到父加载器，然后调用父加载器的loadClass方法。父类中同理也会先检查自己是否已经加载过，如果没有再往上。注意这个类似递归的过程，
  * 直到到达Bootstrap classLoader之前，都是在检查是否加载过，并不会选择自己去加载。直到BootstrapClassLoader，已经没有父加载器了，
  * 这时候开始考虑自己是否能加载了，如果自己无法加载，会下沉到子加载器去加载，一直到最底层，如果没有任何加载器能加载，就会抛出ClassNotFoundException
+ * 优点：
+ * 1.保证安全性，层级关系代表优先级，也就是所有类的加载，优先给启动类加载器，这样就保证了核心类库类。
  *
+ * 2.避免重复，如果父类加载器加载过了，子类加载器就没有必要再去加载了。
  */
 public class 双亲委派机制 {
 
