@@ -11,24 +11,40 @@ package com.myProject.leetCode.sort;
  */
 public class 快速排序 {
 
+    /**
+     * 快速排序（Quick Sort）是从冒泡排序算法演变而来的，实际上是在冒泡排序基础上的递归分治法。
+     * 快速排序在每一轮挑选一个基准元素，并让其他比它大的元素移动到数列一边，比它小的元素移动到数列的另一边，从而把数列拆解成了两个部分<tr/>
+     * 无序数列：4、5、8、1、7、2、6、3 <tr/>
+     * 第一轮 ：3、2、1、<b>4、<b/>7、8、6、5 </tr>
+     * 第二轮 ：1、2、<b>3、4、<b/>5、6、<b>7、</b>8 </tr>
+     * 第三轮 ：1、2、<b>3、4、<b/>5、6、<b>7、</b>8 </tr>
+     *
+     *
+     *
+     * @param a
+     * @param low
+     * @param high
+     */
     public void sort(int[] a, int low, int high) {
         int start = low;
         int end = high;
         int key = a[low];
         while (end > start) {
             //从后往前比较
-            while (end > start && a[end] >= key)
+            while (end > start && a[end] >= key) {
                 //如果没有比关键值小的，比较下一个，直到有比关键值小的交换位置，然后又从前往后比较
                 end--;
+            }
             if (a[end] <= key) {
                 int temp = a[end];
                 a[end] = a[start];
                 a[start] = temp;
             }
             //从前往后比较
-            while (end > start && a[start] <= key)
+            while (end > start && a[start] <= key) {
                 //如果没有比关键值大的，比较下一个，直到有比关键值大的交换位置
                 start++;
+            }
             if (a[start] >= key) {
                 int temp = a[start];
                 a[start] = a[end];
@@ -47,6 +63,16 @@ public class 快速排序 {
             sort(a, end + 1, high);
         }
     }
+    /**
+     * 1.时间复杂度
+     * 快速排序算法在分治法的思想下，原数列在每一轮被拆分成两部分，每一部分在下一轮又分别被拆分成两部分，直到不可再分为止，平均情况下需要logn轮，
+     * 因此快速排序算法的平均时间复杂度是O(nlogn)
+     * 在极端情况下，快速排序算法每一轮只确定基准元素的位置，时间复杂度为O(N^2)
+     * 2.空间复杂度
+     * 快速排序算法排序过程中只是使用数组原本的空间进行排序，因此空间复杂度为O(1)
+     * 3.稳定性
+     * 快速排序算法在排序过程中，可能使相同元素的前后顺序发生改变，所以快速排序是一种不稳定排序算法
+     */
 }
 
 

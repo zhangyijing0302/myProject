@@ -1,14 +1,8 @@
-package com.myProject.leetCode.array;
+package com.myProject.leetCode.sort;
 
 import java.util.Arrays;
 
-/**
- * @author ZhangYijing
- * @Description
- * @Date 2022/4/19
- */
 public class 堆排序 {
-
     public static void main(String[] args) {
         int[] array = {1,2,4,5,6,7,8,9,22,3};
         System.out.println(Arrays.toString(array));
@@ -64,5 +58,12 @@ public class 堆排序 {
             buildMaxHeap(tree, 0, size);
         }
     }
-
+    /**
+     * 1.时间复杂度
+     * 下沉调整的时间复杂度等同于堆的高度O(logn)，构建二叉堆执行下沉调整次数是n/2，循环删除进行下沉调整次数是n-1，时间复杂度约为O(nlogn)
+     * 2.空间复杂度
+     * 堆排序算法排序过程中需要一个临时变量进行两两交换，所需要的额外空间为1，因此空间复杂度为O(1)
+     * 3.稳定性
+     * 堆排序算法在排序过程中，相同元素的前后顺序有可能发生改变，所以堆排序是一种不稳定排序算法
+     */
 }

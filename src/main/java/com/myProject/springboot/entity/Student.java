@@ -16,6 +16,8 @@ public class Student implements Serializable {
     private Integer age;
     private BigDecimal account;
 
+    private List<String> hobbies;
+
     public Student(String name) {
         this.setName(name);
     }
@@ -75,6 +77,14 @@ public class Student implements Serializable {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    public List<String> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(List<String> hobbies) {
+        this.hobbies = hobbies;
     }
 
     public static List<Student> getStudents() {

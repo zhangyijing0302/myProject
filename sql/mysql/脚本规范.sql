@@ -45,9 +45,11 @@ drop procedure IF EXISTS basicExecuteUpdateSql $$
 create procedure basicExecuteUpdateSql()
 begin
     declare v_rowcount int;
-    SELECT count(1) INTO v_rowcount FROM information_schema.statistics WHERE table_name = UPPER('BASE_COUNTERPARTY') and index_name = UPPER('UK_base_Counterparty_CPCode');
+    SELECT count(1) INTO v_rowcount FROM information_schema.statistics WHERE table_schema= SCHEMA() and table_name = UPPER('BASE_COUNTERPARTY') and index_name = UPPER('UK_base_Counterparty_CPCode');
     if v_rowcount = 0 then
             CREATE UNIQUE INDEX UK_base_Counterparty_CPCode ON BASE_COUNTERPARTY(COUNTERPARTYCODE ASC);
+    ELSEIF THEN
+        HAHAHAHHA;
     end if;
 end $$
 call basicExecuteUpdateSql() $$

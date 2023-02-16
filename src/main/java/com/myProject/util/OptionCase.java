@@ -1,6 +1,7 @@
 package com.myProject.util;
 
 
+import com.myProject.springboot.entity.Student;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 
@@ -16,25 +17,15 @@ public class OptionCase {
 
     @Test
     public void test() {
-        Temp temp = new Temp();
-        System.out.println(temp.getList()); // null
-        System.out.println(CollectionUtils.isEmpty(temp.getList())); // true
+        Student temp = new Student();
+        System.out.println(temp.getHobbies()); // null
+        System.out.println(CollectionUtils.isEmpty(temp.getHobbies())); // true
 
-        Temp temp1 = null;
-        System.out.println(Optional.ofNullable(temp).map(Temp::getList).orElse(Collections.singletonList("a")));
-        System.out.println(Optional.ofNullable(temp).map(Temp::getList).map(CollectionUtils::isEmpty).orElse(true));
+        Student temp1 = null;
+        System.out.println(Optional.ofNullable(temp).map(Student::getHobbies).orElse(Collections.singletonList("a")));
+        System.out.println(Optional.ofNullable(temp).map(Student::getHobbies).map(CollectionUtils::isEmpty).orElse(true));
 
     }
 
 }
-class Temp {
-    List<String> list = Collections.singletonList("g");
 
-    public List<String> getList() {
-        return list;
-    }
-
-    public void setList(List<String> list) {
-        this.list = list;
-    }
-}
