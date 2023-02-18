@@ -5,8 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 
 /**
  * 异步线程池
@@ -39,6 +38,21 @@ public class MyAsyncPool {
         executor.setWaitForTasksToCompleteOnShutdown(true);
         // 执行初始化
         executor.initialize();
+        return executor;
+    }
+
+    public ThreadPoolExecutor getOneExecutor() {
+        // 可运行子煦园
+        int i = Runtime.getRuntime().availableProcessors();
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(
+                i,
+                i + 1,
+                5,
+                TimeUnit.SECONDS,
+                new LinkedBlockingQueue<>(),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.CallerRunsPolicy()
+        );
         return executor;
     }
 }

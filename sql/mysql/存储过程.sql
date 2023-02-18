@@ -185,3 +185,48 @@ DROP PROCEDURE IF EXISTS func_Product;
 
 COMMIT;
 notee
+
+
+
+================================================================================================================================================
+#插入百万条数据
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS func_Product$$
+CREATE PROCEDURE func_Product()
+BEGIN
+         DECLARE
+i INT;
+         SET
+i=0;
+         WHILE i>=0 && i<= 1000000 DO
+               INSERT INTO stutable (id, stuname, age, account)
+                VALUES (i,'admin',18,12.88),
+                (i + 1,'admin',18,12.88),
+                (i + 2,'admin',18,12.88),
+                (i + 3,'admin',18,12.88),
+                (i + 4,'admin',18,12.88),
+                (i + 5,'admin',18,12.88),
+                (i + 6,'admin',18,12.88),
+                (i + 7,'admin',18,12.88),
+                (i + 8,'admin',18,12.88),
+                (i + 9,'admin',18,12.88),
+                (i + 10,'admin',18,12.88),
+                (i + 11,'admin',18,12.88),
+                (i + 12,'admin',18,12.88),
+                (i + 13,'admin',18,12.88),
+                (i + 14,'admin',18,12.88),
+                (i + 15,'admin',18,12.88),
+                (i + 16,'admin',18,12.88),
+                (i + 17,'admin',18,12.88),
+                (i + 18,'admin',18,12.88),
+                (i + 19,'admin',18,12.88),
+                (i + 20,'admin',18,12.88)
+                ;
+               SET i = i + 21;
+END WHILE;
+
+END$$
+DELIMITER ;
+CALL func_Product();

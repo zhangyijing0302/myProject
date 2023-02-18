@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myProject.springboot.dao.StuMapper">
+
+    <sql id="table_column">
+        id, stuName as name, age, account
+    </sql>
+
     <insert id="insertIntoStu" parameterType="com.myProject.springboot.entity.Student">
         insert into stuTable(id, stuName, age, account)
         values (#{stu.id, jdbcType=INTEGER}, #{stu.name, jdbcType=VARCHAR}, #{stu.age, jdbcType=INTEGER}, #{stu.account, jdbcType=DECIMAL})
     </insert>
     <select id="selectStuByName" resultType="com.myProject.springboot.entity.Student">
         select * from stuTable where stuName = #{stuName, jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectStuList" resultType="com.myProject.springboot.entity.Student">
+        select
+        <include refid="table_column"/>
+        from stuTable
+    </select>
+
+    <insert id="batchInsert">
+        insert into stuTable(id, stuName, age, account)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id}, #{item.name}, #{item.age}, #{item.account})
+        </foreach>
+    </insert>
+
+    <select id="selectCount" resultType="int">
+        select count(id) from stuTable
     </select>
 </mapper>

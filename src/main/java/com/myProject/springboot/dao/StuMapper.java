@@ -4,6 +4,8 @@ import com.myProject.springboot.entity.Student;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @author ZhangYijing
  */
@@ -16,4 +18,10 @@ public interface StuMapper {
     void insertIntoStu(@Param("stu")Student student);
 
     Student selectStuByName(@Param("stuName") String stuName);
+
+    List<Student> selectStuList();
+
+    int selectCount();
+
+    void batchInsert(List<Student> list);
 }
