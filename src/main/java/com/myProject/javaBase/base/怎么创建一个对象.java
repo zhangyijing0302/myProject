@@ -31,6 +31,6 @@ public class 怎么创建一个对象 {
         School school4 = school1.clone();
         // 5 通过序列化与反序列化 没有调用构造器
         byte[] serialize = SerializationUtils.serialize(school1);
-        Object deserialize = SerializationUtils.deserialize(serialize);
+        School school5 = (School)SerializationUtils.deserialize(serialize);
     }
 }
