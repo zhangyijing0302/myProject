@@ -1,0 +1,3 @@
+-- github的时候超时,怀疑代理出现问题
+git config --global --unset http.proxy
+git config --global --unset https.proxy
