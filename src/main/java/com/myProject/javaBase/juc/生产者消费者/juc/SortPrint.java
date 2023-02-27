@@ -78,7 +78,6 @@ class Data3 {
     public void printC() {
         lock.lock();
         try {
-
             while (num != 3) {
                 condition3.await();
             }

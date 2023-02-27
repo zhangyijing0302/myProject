@@ -1,0 +1,27 @@
+索引用来快速寻找具有特定值的记录
+如果没有索引，执行一次查询需要全表扫描
+索引就是把无序数据变成有序查询
+
+create table t1 (
+    a int primary,
+    b int,
+    c int,
+    d int,
+    e varchar(10)
+) engine = innodb;
+
+insert into t1 value(1,2,3,4,'e');
+insert into t1 value(2,2,3,4,'f');
+insert into t1 value(3,2,3,4,'d');
+insert into t1 value(4,2,3,4,'s');
+insert into t1 value(5,2,3,4,'q');
+insert into t1 value(6,2,3,4,'0');
+
+
+EXPLAIN select b from t1; --没有where条件也可以走索引
+EXPLAIN select c from t1; --没有where条件也可以走索引
+EXPLAIN select d from t1; --没有where条件也可以走索引
+EXPLAIN select b,c,d from t1; --没有where条件也可以走索引
+
+bcd索引中也存有bcd字段的值，主键索引存放的是全表的完全数据，bcd索引存放的是bcd字段的不完整数据
+一页16kb下，可以存放更多的不完整数据，所以走bcd索引会扫描更少的叶子

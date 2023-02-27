@@ -1,0 +1,47 @@
+create table t1 (
+    a int primary,
+    b int,
+    c int,
+    d int,
+    e varchar(10)
+) engine = innodb;
+
+insert into t1 value(1,2,3,4,'e');
+insert into t1 value(2,2,3,4,'f');
+insert into t1 value(3,2,3,4,'d');
+insert into t1 value(4,2,3,4,'s');
+insert into t1 value(5,2,3,4,'q');
+insert into t1 value(6,2,3,4,'0');
+
+create index ide_e on t1(e) using BTREE;
+create index idx_bcd on t1(b,c,d) using BTREE;
+
+-- 对字段进行操作导致的索引失效
+
+select * from t1 where a = 1; 可以走索引
+select * from t1 where a+1 = 1; 不能走索引
+
+EXPLAIN select * from t1 where e = 'a'; 可以走索引
+EXPLAIN select * from t1 where e = '1'; 可以走索引
+EXPLAIN select * from t1 where e = 1; 不可以走索引，这里用了类型转换
+
+因为e字段本事是一个字符类型，要执行e = 1需要将e字段所有的值转换成数字之后再执行这个条件
+
+mysql中字符转换的规则都是把字符转换成成数字
+所以select * from t1 where a = 'a',会尝试将'a'转换成数字，行不通，所以'a'被转换成0，这里会查询到a=0的结果
+
+mysql的数字字符'1'会转化成数字1，但其他字母会转换成0，
+mysql会尝试从字符串的开头解析数字。在这种情况下，那里没有数字，所以它转换为0，并且0 = 0为真，所以会e = 0 会查出来所有的非数字字符
+
+无论是否有索引，e字段都要把所有的字符转换成数字后再执行这个条件
+所以也不可能把索引中的字符转换成数字后再走索引
+
+-- order by 导致的索引失效
+
+EXPLAIN select * from t1 order by b,c,d -- 全表扫描
+因为这里如果走bcd索引的话，虽然索引是排好序的，但确定完结果后需要做一次回表
+但做全表扫描时，虽然不走索引，只需要消耗内存空间去做排序，但不需要回表，反而更快
+EXPLAIN select b from t1 order by b,c,d -- 走bcd索引
+EXPLAIN select c from t1 order by b,c,d -- 走bcd索引
+EXPLAIN select d from t1 order by b,c,d -- 走bcd索引
+这里走索引是因为bcd索引中b,c,d字段本身就是排序好的了
